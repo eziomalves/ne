@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title%} {% endblock %}</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="icon" type="image/gif" href="/static/img/animated_favicon1.gif">
+    
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/shop-homepage.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/produto_detalhe.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">NE Moda Fitness</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contato">Contato</a>
+                    </li>
+                </ul>
+    
+                <form class="form-inline my-2 my-lg-0" method="GET" id="search-form">
+                    <div class="input-group input-group-sm">
+                        <input type="text" id="search" name="search" value="{{request.GET.search}}" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Buscar...">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-secondary btn-number">
+                                <i class="fa fa-search" id=search-btn></i>
+                            </button>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary btn-sm ml-3" href="#">
+                        <i class="fa fa-shopping-cart"></i> Carrinho
+                        <span class="badge badge-light">3</span>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+     <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+
+    {% block content %}
+    {% endblock %}
+
+    </div>
+    </div>
+    <!-- Footer -->
+<footer class="text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 col-xl-3">
+                <h5>Sobre</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <p class="mb-0">
+                    Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis. Viva Forevis aptent taciti sociosqu ad litora torquent. 
+                </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                <h5>Informações</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+                <h5>Outros Links</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h5>Contato</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-home mr-2"></i> NE Moda Fitness</li>
+                    <li><i class="fa fa-envelope mr-2"></i> ne.ouricuri@gmail.com</li>
+                    <li><i class="fa fa-whatsapp mr-2"></i> (87) 99653-7096</li>
+                    <li><i class="fa fa-instagram mr-2"></i> @ne.modafitness</li>
+                    
+                </ul>
+            </div>
+            <div class="col-12 copyright mt-3">
+                <p class="float-left">
+                    <a href="#">Voltar ao Início</a>
+                </p>
+                <p class="text-right text-muted">created with <i class="fa fa-heart"></i> by <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i>t-php</i></a> | <span>v. 1.0</span></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static '/jquery/jquery.min.js' %}"></script>
+    <script src="{% static '/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

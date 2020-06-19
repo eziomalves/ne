@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title%} {{produto.nome}} {% endblock %}
+
+{% block content %} 
+
+	<div class="container">
+		<div class="card_d">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+						
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img src="/media/{{produto.foto1}}" /></div>
+						  <div class="tab-pane" id="pic-2"><img src="/media/{{produto.foto2}}" /></div>
+						  <div class="tab-pane" id="pic-3"><img src="/media/{{produto.foto3}}" /></div>
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="/media/{{produto.foto1}}" /></a></li>
+						  <li><a data-target="#pic-2" data-toggle="tab"><img src="/media/{{produto.foto2}}" /></a></li>
+						  <li><a data-target="#pic-3" data-toggle="tab"><img src="/media/{{produto.foto3}}" /></a></li>
+						</ul>
+						
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">{{produto.nome}}</h3>
+						<p class="product-description">{{produto.descricao}}</p>
+						<h4 class="price">Valor: <span>R$ {{produto.valor}}</span></h4>
+						<h5 class="sizes">Tamanho:
+							<span class="size" data-toggle="tooltip" title="small">{{produto.tamanho}}</span>
+						</h5>
+						<div class="action">
+							<button class="add-to-cart btn btn-default" type="button">Adicionar ao Carrinho</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

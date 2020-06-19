@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title%} Seja Bem-Vindo {% endblock %}
+
+{% block content %} 
+    <!-- /.col-lg-3 -->
+    <div class="col-lg-3">
+
+      <h3 class="my-4 text-center">Categorias</h3>
+      <div class="list-group">
+        {% for categoria in categorias %}
+        <a href="/?filter={{categoria.id}}" class="list-group-item">{{categoria.nome}}</a>
+        {% endfor%}
+        <a href="/" class="list-group-item">Todos</a>
+      </div>
+
+    </div>
+
+    <div class="col-lg-9">
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Próximo</span>
+          </a>
+        </div>
+        
+        <div class="row">
+          {% for produto in produtos%}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/produto_detalhe/{{produto.id}}"><img class="card-img-top" src="/media/{{produto.foto1}}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  {{produto.nome}}
+                </h4>
+                <h5>R$ {{produto.valor}}</h5>
+                <p class="card-text">{{produto.descricao}}</p>
+              </div>
+              <div class="card-footer">
+                <p>Tamanho: {{produto.tamanho}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        
+        <nav aria-label="...">
+          <ul class="pagination">
+            {% if produtos.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{produtos.previous_page_number}}">Voltar</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="?page={{produtos.previous_page_number}}"> {{produtos.previous_page_number }}</a></li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" href="#">Voltar</a>
+            </li>
+            {% endif%}  
+
+            {% if produtos.paginator.num_pages %}
+            <li class="page-item active">
+              <a class="page-link" href="#">{{produtos.number}} <span class="sr-only">(current)</span></a>
+            </li>
+            {% endif %}
+
+            {% if produtos.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{produtos.next_page_number}}">{{produtos.next_page_number}}</a></li>
+            <li class="page-item"></li>
+              <a class="page-link" href="?page={{produtos.next_page_number}}">Próximo</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" href="#">Próximo</a>
+            </li>
+            {% endif%}  
+          </ul>
+        </nav>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+{% endblock %}

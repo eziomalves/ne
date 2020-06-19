@@ -1,0 +1,29 @@
+
+.list-group-item:hover{
+    color: #FFF; 
+    background-color:#4ac2ed;
+    text-decoration: none;
+}
+
+.list-group-item{
+    color: rgb(0, 0, 0); 
+    text-transform: uppercase;
+    
+}
+
+.pagination {
+    margin-top: 20px;
+}
+footer {
+    background: #343a40;
+    padding: 40px;
+    margin-top: 20px;
+}
+footer a {
+    color: #f8f9fa!important
+}
+
+.form-contato{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
